@@ -14,6 +14,14 @@ def draw_table():
         if i == 2 or i== 5:
             strokeWeight(2)
         line(0,67+67*i,width,67+67*i)
+
+def mousePressed():
+    global clicked_rows,clicked_cols
+    rows = floor(mouseY/ cell_size)
+    cols = floor(mouseX / cell_size)
+    if (rows >= 0 and rows < 9) and (cols >= 0 and cols < 9):
+        clicked_rows = rows
+        clicked_cols = cols
         
 def setup():
     size(600,600)
