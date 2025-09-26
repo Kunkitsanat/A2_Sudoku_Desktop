@@ -29,5 +29,14 @@ def setup():
 def draw():
     background(200)
     draw_table()
-
+    for i in range(9):
+        for j in range(9):
+            x = j * cell_size
+            y = i * cell_size
+            if i == clicked_rows and j == clicked_cols:  
+                fill(0, 200, 0)
+                rect(x, y, cell_size, cell_size)
+            else:
+                fill(0)
+    
             
