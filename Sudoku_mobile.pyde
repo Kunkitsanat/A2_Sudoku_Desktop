@@ -1,6 +1,16 @@
 clicked_rows = -1 # empty rows 
 clicked_cols = -1 # empty cols
 cell_size = 67 # size of cell
+table = [] # table for numbers
+
+def load_sudoku(filename):
+    global table
+    nums = loadStrings(filename)
+    for num in nums:
+        rows = []
+        for n in num:
+            rows.append(n)
+        table.append(rows)
 
 def draw_table():
     for i in range(8):
