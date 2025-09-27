@@ -7,13 +7,13 @@ def draw_table():
         strokeWeight(1)
         if i == 2 or i== 5:
             strokeWeight(2)
-        line(67+67*i,0,67+67*i,height)
+        line(cell_size+cell_size*i,0,cell_size+cell_size*i,height)
         
     for i in range(8):
         strokeWeight(1)
         if i == 2 or i== 5:
             strokeWeight(2)
-        line(0,67+67*i,width,67+67*i)
+        line(0,cell_size+cell_size*i,width,cell_size+cell_size*i)
 
 def mousePressed():
     global clicked_rows,clicked_cols
