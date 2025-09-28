@@ -9,14 +9,14 @@ def load_sudoku(filename):
     for num in nums:
         rows = []
         for n in num:
-            rows.append(n)
+            rows.append(int(n))
         table.append(rows)
 
 def draw_num():
     global table
     for i in range(9):
         for j in range(9):
-            if table[i][j] != '0':
+            if table[i][j] != 0:
                 text(table[i][j],cell_size * j + cell_size / 2,cell_size * i + cell_size / 2)
 
 def draw_table():
@@ -40,6 +40,12 @@ def mousePressed():
         clicked_rows = rows
         clicked_cols = cols
         
+def keyPressed():
+    if clicked_rows != -1 and clicked_cols != -1:
+        if table[clicked_rows][clicked_cols] == 0:
+            if key >= '1' and key <= '9':
+                table[clicked_rows][clicked_cols] = int(key)
+        
 def setup():
     size(600,600)
     load_sudoku("sudoku.txt")
@@ -59,5 +65,9 @@ def draw():
                 rect(x, y, cell_size, cell_size)
             else:
                 fill(0)
-    
+                
+
+            
+            
+            
             
