@@ -12,6 +12,13 @@ def load_sudoku(filename):
             rows.append(n)
         table.append(rows)
 
+def draw_num():
+    global table
+    for i in range(9):
+        for j in range(9):
+            if table[i][j] != '0':
+                text(table[i][j],cell_size * j + cell_size / 2,cell_size * i + cell_size / 2)
+
 def draw_table():
     for i in range(8):
         strokeWeight(1)
