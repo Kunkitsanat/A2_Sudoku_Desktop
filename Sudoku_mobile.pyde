@@ -35,6 +35,7 @@ def mousePressed():
         
 def setup():
     size(600,600)
+    load_sudoku("sudoku.txt")
     
 def draw():
     background(200)
