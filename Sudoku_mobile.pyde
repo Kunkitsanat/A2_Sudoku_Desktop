@@ -43,10 +43,13 @@ def mousePressed():
 def setup():
     size(600,600)
     load_sudoku("sudoku.txt")
+    textAlign(CENTER,CENTER)
+    textSize(20)
     
 def draw():
     background(200)
     draw_table()
+    draw_num()
     for i in range(9):
         for j in range(9):
             x = j * cell_size
