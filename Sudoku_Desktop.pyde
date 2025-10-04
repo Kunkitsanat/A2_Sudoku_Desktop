@@ -2,6 +2,15 @@ clicked_rows = -1 # unclicked rows
 clicked_cols = -1 # unclicked cols
 cell_size = 67 # size of cell
 table = [] # table for numbers
+truth_value = [[1,1,1,1,1,1,1,1,1], #  1 = input number 2 = fixed number 0 = wrong number
+               [1,1,1,1,1,1,1,1,1],
+               [1,1,1,1,1,1,1,1,1],
+               [1,1,1,1,1,1,1,1,1],
+               [1,1,1,1,1,1,1,1,1],
+               [1,1,1,1,1,1,1,1,1],
+               [1,1,1,1,1,1,1,1,1],
+               [1,1,1,1,1,1,1,1,1],
+               [1,1,1,1,1,1,1,1,1],]
 
 def load_sudoku(filename): # load numbers from text file
     global table
@@ -11,6 +20,11 @@ def load_sudoku(filename): # load numbers from text file
         for n in num: # n for each column in num
             rows.append(int(n)) # add int n to rows
         table.append(rows) # add rows to table
+        
+    for i in range(9):
+        for j in range(9):
+            if table[i][j] != 0:
+                truth_value[i][j] = 2
 
 def draw_num(): # draw numbers from table
     global table
