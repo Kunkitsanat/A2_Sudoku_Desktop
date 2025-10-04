@@ -56,16 +56,9 @@ def draw():
     background(200)
     draw_table() # draw sudoku table
     draw_num()  # draw numbers from table
-    for i in range(9): # loop for mousePressed funtion
-        for j in range(9):
-            x = j * cell_size
-            y = i * cell_size
-            if i == clicked_rows and j == clicked_cols:  # if cell is clicked
-                fill(0, 200, 0) # fill green
-                rect(x, y, cell_size, cell_size) # draw green rectangle in clicked cell
-            else: # if not
-                fill(0) # fill black 
-                
+    if clicked_rows != -1 and clicked_cols != -1:
+        fill(0,200,0,100)
+        rect(clicked_cols * cell_size, clicked_rows * cell_size, cell_size, cell_size)
 
             
             
