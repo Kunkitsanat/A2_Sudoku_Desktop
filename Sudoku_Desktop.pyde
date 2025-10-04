@@ -31,6 +31,12 @@ def draw_num(): # draw numbers from table
     for i in range(9):
         for j in range(9):
             if table[i][j] != 0: # check if table is not empty
+                if truth_value[i][j] == 2: # fixed number fill black
+                    fill(0)
+                elif truth_value[i][j] == 1: # input number fill blue
+                    fill(0,0,200)
+                else: # wrong number fill red
+                    fill(200,0,0)
                 text(table[i][j],cell_size * j + cell_size / 2,cell_size * i + cell_size / 2) # write number
 
 def draw_table(): # draw sudoku table
