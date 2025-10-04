@@ -65,10 +65,28 @@ def keyPressed(): # input number
         if truth_value[clicked_rows][clicked_cols] != 2: # if number is not fixed number
             if key >= '1' and key <= '9': # if keyboard between 1 to 9
                 table[clicked_rows][clicked_cols] = int(key) # number in table = int(ket)
+                checkNum()
             elif key == BACKSPACE: # if key is BACKSPACE
                 table[clicked_rows][clicked_cols] = 0 # delete number
                 truth_value[clicked_rows][clicked_cols] = 1 # number is input number
 
+def checkNum():
+    global table,clicked_rows,clicked_cols,truth_value
+    for i in range(9):
+        if table[clicked_rows][clicked_cols] == table[i][clicked_cols] and i != clicked_rows:
+            truth_value[clicked_rows][clicked_cols] = 0
+    
+    for j in range(9):
+        if table[clicked_rows][clicked_cols] == table[clicked_rows][j] and j != clicked_cols:
+            truth_value[clicked_rows][clicked_cols] = 0
+        
+    s_rows = clicked_rows + clicked_rows // 3
+    s_cols = clicked_cols + clicked_cols // 3
+    for i in range(3):
+        for j in range(3):
+            if table[clicked_rows][clicked_cols] == table[s_rows][s_cols]:
+                truth_value[clicked_rows][clicked_cols] = 0
+    
 def setup():
     size(600,600) 
     load_sudoku("sudoku.txt") # load sudoku numbers
