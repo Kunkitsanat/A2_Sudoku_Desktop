@@ -62,10 +62,13 @@ def mousePressed(): # mouse function for clicked
         
 def keyPressed(): # input number
     if clicked_rows != -1 and clicked_cols != -1: # check if cell_size is unclicked
-        if table[clicked_rows][clicked_cols] == 0: # if number in table == 0 or empty
+        if truth_value[clicked_rows][clicked_cols] != 2: # if number is not fixed number
             if key >= '1' and key <= '9': # if keyboard between 1 to 9
                 table[clicked_rows][clicked_cols] = int(key) # number in table = int(ket)
-        
+            elif key == BACKSPACE: # if key is BACKSPACE
+                table[clicked_rows][clicked_cols] = 0 # delete number
+                truth_value[clicked_rows][clicked_cols] = 1 # number is input number
+
 def setup():
     size(600,600) 
     load_sudoku("sudoku.txt") # load sudoku numbers
