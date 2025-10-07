@@ -23,8 +23,8 @@ def load_sudoku(filename): # load numbers from text file
         
     for i in range(9):
         for j in range(9):
-            if table[i][j] != 0:
-                truth_value[i][j] = 2
+            if table[i][j] != 0: # if number in text file is not equal 0
+                truth_value[i][j] = 2 # It is a fixed number
 
 def draw_num(): # draw numbers from table
     global table
@@ -65,7 +65,7 @@ def keyPressed(): # input number
         if truth_value[clicked_rows][clicked_cols] != 2: # if number is not fixed number
             if key >= '1' and key <= '9': # if keyboard between 1 to 9
                 table[clicked_rows][clicked_cols] = int(key) # number in table = int(ket)
-                checkNum()
+                checkNum() # call checkNum()
             elif key == BACKSPACE: # if key is BACKSPACE
                 table[clicked_rows][clicked_cols] = 0 # delete number
                 truth_value[clicked_rows][clicked_cols] = 1 # number is input number
@@ -73,19 +73,19 @@ def keyPressed(): # input number
 def checkNum():
     global table,clicked_rows,clicked_cols,truth_value
     for i in range(9):
-        if table[clicked_rows][clicked_cols] == table[i][clicked_cols] and i != clicked_rows:
+        if table[clicked_rows][clicked_cols] == table[i][clicked_cols] and i != clicked_rows: # check each column
             truth_value[clicked_rows][clicked_cols] = 0
     
     for j in range(9):
-        if table[clicked_rows][clicked_cols] == table[clicked_rows][j] and j != clicked_cols:
+        if table[clicked_rows][clicked_cols] == table[clicked_rows][j] and j != clicked_cols: # check each rows
             truth_value[clicked_rows][clicked_cols] = 0
         
-    s_rows = (clicked_rows // 3) * 3
-    s_cols = (clicked_cols // 3) * 3
+    s_rows = (clicked_rows // 3) * 3 # s_rows for start rows
+    s_cols = (clicked_cols // 3) * 3 # s_cols for start columns
     for i in range(3):
         for j in range(3):
-            if table[clicked_rows][clicked_cols] == table[s_rows][s_cols]:
-                truth_value[clicked_rows][clicked_cols] = 0
+            if table[clicked_rows][clicked_cols] == table[s_rows][s_cols]: # if number is equal other number in block 3x3
+                truth_value[clicked_rows][clicked_cols] = 0 # It is a wrong number
     
 def setup():
     size(600,600) 
@@ -97,9 +97,9 @@ def draw():
     background(200)
     draw_table() # draw sudoku table
     draw_num()  # draw numbers from table
-    if clicked_rows != -1 and clicked_cols != -1:
+    if clicked_rows != -1 and clicked_cols != -1: # if mouse is clicked
         fill(0,200,0,100)
-        rect(clicked_cols * cell_size, clicked_rows * cell_size, cell_size, cell_size)
+        rect(clicked_cols * cell_size, clicked_rows * cell_size, cell_size, cell_size) # draw green square
 
             
             
