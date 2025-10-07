@@ -84,7 +84,9 @@ def checkNum():
     s_cols = (clicked_cols // 3) * 3 # s_cols for start columns
     for i in range(3):
         for j in range(3):
-            if table[clicked_rows][clicked_cols] == table[s_rows][s_cols]: # if number is equal other number in block 3x3
+            r = s_rows + i
+            c = s_cols + j
+            if table[clicked_rows][clicked_cols] == table[r][c] and (r != clicked_rows or c != clicked_cols): # if number is equal other number in block 3x3
                 truth_value[clicked_rows][clicked_cols] = 0 # It is a wrong number
     
 def setup():
