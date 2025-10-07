@@ -56,9 +56,8 @@ def mousePressed(): # mouse function for clicked
     global clicked_rows,clicked_cols
     rows = floor(mouseY/ cell_size) # rows for mouseY in cell_size
     cols = floor(mouseX / cell_size) # cols for mouseX in cell_size
-    if (rows >= 0 and rows < 9) and (cols >= 0 and cols < 9): # 9 x 9 table
-        clicked_rows = rows # clicked rows = rows
-        clicked_cols = cols # clicked cols = cols
+    clicked_rows = rows # clicked rows = rows
+    clicked_cols = cols # clicked cols = cols
         
 def keyPressed(): # input number
     if clicked_rows != -1 and clicked_cols != -1: # check if cell_size is unclicked
