@@ -1,6 +1,10 @@
+s = 600
+width = s
+height = s
+
 clicked_rows = -1 # unclicked rows 
 clicked_cols = -1 # unclicked cols
-cell_size = 67 # size of cell
+cell_size = s / 9 # size of cell
 table = [] # table for numbers
 truth_value = [[1,1,1,1,1,1,1,1,1], #  1 = input number 2 = fixed number 0 = wrong number
                [1,1,1,1,1,1,1,1,1],
@@ -89,7 +93,7 @@ def checkNum():
                 truth_value[clicked_rows][clicked_cols] = 0 # It is a wrong number
     
 def setup():
-    size(600,600) 
+    size(width,height) 
     load_sudoku("sudoku.txt") # load sudoku numbers
     textAlign(CENTER,CENTER) # set text to center
     textSize(20) # size of text
