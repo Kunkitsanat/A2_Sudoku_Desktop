@@ -80,8 +80,8 @@ def checkNum():
         if table[clicked_rows][clicked_cols] == table[clicked_rows][j] and j != clicked_cols:
             truth_value[clicked_rows][clicked_cols] = 0
         
-    s_rows = clicked_rows + clicked_rows // 3
-    s_cols = clicked_cols + clicked_cols // 3
+    s_rows = (clicked_rows // 3) * 3
+    s_cols = (clicked_cols // 3) * 3
     for i in range(3):
         for j in range(3):
             if table[clicked_rows][clicked_cols] == table[s_rows][s_cols]:
