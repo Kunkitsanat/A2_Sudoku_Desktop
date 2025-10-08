@@ -1,10 +1,10 @@
-s = 600
+s = 800
 width = s
 height = s
 
 clicked_rows = -1 # unclicked rows 
 clicked_cols = -1 # unclicked cols
-cell_size = s / 9 # size of cell
+cell_size = s / 9 + 1 # size of cell
 table = [] # table for numbers
 truth_value = [[1,1,1,1,1,1,1,1,1], #  1 = input number 2 = fixed number 0 = wrong number
                [1,1,1,1,1,1,1,1,1],
