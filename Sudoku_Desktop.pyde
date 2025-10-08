@@ -105,7 +105,14 @@ def checkNum():
             c = s_cols + j
             if table[clicked_rows][clicked_cols] == table[r][c] and (r != clicked_rows or c != clicked_cols): # if number is equal other number in block 3x3
                 truth_value[clicked_rows][clicked_cols] = 0 # It is a wrong number
-    
+
+def endgame():
+    background(200)
+    fill(0)
+    textAlign(CENTER)
+    textSize(32)
+    text("End!",width/2,height/2)
+            
 def setup():
     size(width,height) 
     load_sudoku("sudoku.txt") # load sudoku numbers
@@ -120,7 +127,6 @@ def draw():
         fill(0,200,0,100)
         rect(clicked_cols * cell_size, clicked_rows * cell_size, cell_size, cell_size) # draw green square
 
-            
             
             
             
