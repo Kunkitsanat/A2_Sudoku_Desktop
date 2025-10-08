@@ -19,16 +19,23 @@ truth_value = [[1,1,1,1,1,1,1,1,1], #  1 = input number 2 = fixed number 0 = wro
 def load_sudoku(filename): # load numbers from text file
     global table
     nums = loadStrings(filename) # nums for load numbers form text file
-    for num in nums:
-        rows = [] # rows for rows in nums
-        for n in num: # n for each column in num
-            rows.append(int(n)) # add int n to rows
-        table.append(rows) # add rows to table
-        
-    for i in range(9):
-        for j in range(9):
-            if table[i][j] != 0: # if number in text file is not equal 0
-                truth_value[i][j] = 2 # It is a fixed number
+    if filename.endswith(".txt"):
+        for num in nums:
+            rows = [] # rows for rows in nums
+            for n in num: # n for each column in num
+                rows.append(int(n)) # add int n to rows
+            table.append(rows) # add rows to table
+            
+        for i in range(9):
+            for j in range(9):
+                if table[i][j] != 0: # if number in text file is not equal 0
+                    truth_value[i][j] = 2 # It is a fixed number
+                    
+    else:
+        fill(200,0,0)
+        textAlign(CENTER)
+        textSize(32)
+        text("Format Error",width/2,height/2)
 
 def draw_num(): # draw numbers from table
     global table
