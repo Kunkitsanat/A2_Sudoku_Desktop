@@ -127,6 +127,19 @@ def draw():
         fill(0,200,0,100)
         rect(clicked_cols * cell_size, clicked_rows * cell_size, cell_size, cell_size) # draw green square
 
+    count = 0 # count for input number
+    fixed_count = 0 # count for fixed number
+    for i in range(9):
+        for j in range(9):
+            if table[i][j] != 0 and truth_value[i][j] == 1: # if number is not equal 0 and it is input number
+                count += 1 # increase count 
+            if truth_value[i][j] == 2: # if number is fixed
+                fixed_count += 1 # increase fixed_count
+      
+    total = count + fixed_count # total for all count
+    if total == 81: # if all number is corect
+        endgame() # endgame
+      
             
             
             
