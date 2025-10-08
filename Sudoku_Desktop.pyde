@@ -23,6 +23,13 @@ def load_sudoku(filename): # load numbers from text file
         for num in nums:
             rows = [] # rows for rows in nums
             for n in num: # n for each column in num
+                if not n.isdigit():
+                    fill(200,0,0)
+                    textAlign(CENTER)
+                    textSize(32)
+                    text("Index Error",width/2,height/2)
+                    noLoop()
+                    return
                 rows.append(int(n)) # add int n to rows
             table.append(rows) # add rows to table
             
